@@ -1,10 +1,112 @@
+
 # AI-Powered Catalog Enrichment Pipeline
 
-An AI-powered product catalog enrichment system that transforms unstructured product data into structured, categorized, SEO-ready catalog records.
+<p align="center">
+  <strong>Transform unstructured product data into structured, categorized and SEO-ready catalog records using AI.</strong>
+</p>
+
+<p align="center">
+  <a href="https://ai-catalog-enrichment-pipeline.onrender.com/docs">
+    <img src="https://img.shields.io/badge/🚀_TRY_LIVE_DEMO-Open_Swagger-2ea44f?style=for-the-badge" alt="Try Live Demo"/>
+  </a>
+  <a href="https://ai-catalog-enrichment-pipeline.onrender.com/health">
+    <img src="https://img.shields.io/badge/API-Health_Check-blue?style=for-the-badge" alt="API Health Check"/>
+  </a>
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3.12-blue?logo=python" alt="Python"/>
+  <img src="https://img.shields.io/badge/FastAPI-Backend-009688?logo=fastapi" alt="FastAPI"/>
+  <img src="https://img.shields.io/badge/LangGraph-Workflow-orange" alt="LangGraph"/>
+  <img src="https://img.shields.io/badge/Google_Gemini-AI-4285F4?logo=google" alt="Google Gemini"/>
+  <img src="https://img.shields.io/badge/MCP-Integrated-purple" alt="MCP"/>
+</p>
+
+## Introduction
+
+An AI-powered product catalog enrichment system that transforms unstructured product data into structured, categorized and SEO-ready catalog records.
 
 Built with **Python, FastAPI, Google Gemini, LangGraph, semantic taxonomy retrieval, SQLite and Model Context Protocol (MCP)**, the system automates product attribute extraction, category classification, SEO generation and validation, with human-in-the-loop review for uncertain or invalid records.
 
 The project exposes its capabilities through both REST APIs and a custom MCP server, allowing traditional applications and AI assistants to interact with the same enrichment workflow.
+
+---
+
+# 🚀 LIVE DEMO — TRY IT YOURSELF
+
+> **No installation required. No repository cloning required.**
+>
+> Open the interactive API documentation, submit a product and see the AI enrichment pipeline in action.
+
+## 🌐 Live Application
+
+| Resource | Link |
+|---|---|
+| **Live API** | [Open Application](https://ai-catalog-enrichment-pipeline.onrender.com) |
+| **Interactive Swagger UI** | [TEST THE API HERE](https://ai-catalog-enrichment-pipeline.onrender.com/docs) |
+| **Health Check** | [Check API Health](https://ai-catalog-enrichment-pipeline.onrender.com/health) |
+
+## ⚡ Test Your First Product in 3 Steps
+
+### STEP 1 — Open Swagger UI
+
+👉 **[CLICK HERE TO OPEN THE LIVE API DOCUMENTATION](https://ai-catalog-enrichment-pipeline.onrender.com/docs)**
+
+### STEP 2 — Submit a Product
+
+1. Find and expand `POST /api/v1/enrich`.
+2. Click **Try it out**.
+3. Paste the sample JSON below.
+4. Click **Execute**.
+
+**Sample product input:**
+
+```json
+{
+  "sku": "ROYAL-CANIN-001",
+  "title": "Royal Canin German Shepherd Adult Dry Dog Food 3kg",
+  "description": "Complete dry dog food for adult German Shepherd dogs, supporting digestive health and coat condition.",
+  "brand": "Royal Canin",
+  "category": "Pet Supplies",
+  "attributes": {
+    "pet_type": "Dog",
+    "breed": "German Shepherd",
+    "life_stage": "Adult",
+    "weight": "3kg"
+  }
+}
+```
+
+### STEP 3 — Explore the AI-generated Result
+
+The response includes:
+
+- AI-extracted product attributes
+- Semantic product category
+- SEO-optimized title and description
+- Validation results
+- Workflow status (`approved` or `pending_review`)
+
+## 🔍 Explore More API Capabilities
+
+| Endpoint | What to test |
+|---|---|
+| `POST /api/v1/enrich` | Enrich a single product |
+| `POST /api/v1/enrich/batch` | Enrich multiple products |
+| `GET /api/v1/products` | View stored products |
+| `GET /api/v1/products/{sku}` | Retrieve an enriched product |
+| `POST /api/v1/products/{sku}/review` | Approve or reject a pending product |
+| `GET /health` | Check API health |
+
+**Testing tips:**
+- Use a unique SKU for each new product.
+- Try products from different categories, such as electronics, apparel, beauty and pet supplies.
+- Products with uncertain classifications or validation failures may enter human review.
+- The free hosting instance may take some time to wake up after inactivity.
+- AI requests are subject to Gemini API quotas.
+
+---
+
 
 ## Key Features
 
@@ -26,6 +128,69 @@ The project exposes its capabilities through both REST APIs and a custom MCP ser
 - **Health Check:** https://ai-catalog-enrichment-pipeline.onrender.com/health
 
 > Hosted on Render's free tier. The service may sleep after inactivity, causing a delay on the first request.
+
+
+## Try It Yourself
+
+The API is publicly accessible. You can test the enrichment pipeline directly through Swagger UI without installing anything.
+
+### 1. Open Swagger
+Visit: https://ai-catalog-enrichment-pipeline.onrender.com/docs
+
+### 2. Enrich a Product
+
+1. Expand `POST /api/v1/enrich`.
+2. Click **Try it out**.
+3. Replace the sample request with the JSON below.
+4. Click **Execute**.
+
+**Sample request:**
+
+```json
+{
+  "sku": "ROYAL-CANIN-001",
+  "title": "Royal Canin German Shepherd Adult Dry Dog Food 3kg",
+  "description": "Complete dry dog food for adult German Shepherd dogs, supporting digestive health and coat condition.",
+  "brand": "Royal Canin",
+  "category": "Pet Supplies",
+  "attributes": {
+    "pet_type": "Dog",
+    "breed": "German Shepherd",
+    "life_stage": "Adult",
+    "weight": "3kg"
+  }
+}
+```
+
+### 3. Explore Other Features
+
+| Endpoint | What to test |
+|---|---|
+| `GET /health` | Check API availability |
+| `POST /api/v1/enrich` | Enrich a single product |
+| `POST /api/v1/enrich/batch` | Enrich multiple products |
+| `GET /api/v1/products` | List stored products |
+| `GET /api/v1/products/{sku}` | Retrieve an enriched product |
+| `POST /api/v1/products/{sku}/review` | Approve or reject a product awaiting human review |
+
+### 4. What to Look For
+
+The enrichment response includes:
+
+- Normalized product title
+- AI-extracted product attributes
+- Semantic taxonomy classification
+- SEO title and description
+- Validation errors
+- Workflow status (`approved` or `pending_review`)
+
+### Notes
+
+- Use a unique SKU for each test.
+- Products with uncertain categories or validation issues may enter human review.
+- The free hosting instance may take a little time to wake up after inactivity.
+- AI requests are subject to the configured Gemini API quota.
+
 
 
 ## Architecture
