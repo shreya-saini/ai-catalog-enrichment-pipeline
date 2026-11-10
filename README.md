@@ -18,6 +18,16 @@ The project exposes its capabilities through both REST APIs and a custom MCP ser
 - **MCP integration:** Provides nine custom MCP tools for AI assistants and MCP-compatible clients.
 - **Persistent product storage:** Stores original product inputs, enrichment results and workflow statuses using SQLAlchemy and SQLite.
 
+
+## Live Demo
+
+- **Live API:** https://ai-catalog-enrichment-pipeline.onrender.com
+- **Swagger Documentation:** https://ai-catalog-enrichment-pipeline.onrender.com/docs
+- **Health Check:** https://ai-catalog-enrichment-pipeline.onrender.com/health
+
+> Hosted on Render's free tier. The service may sleep after inactivity, causing a delay on the first request.
+
+
 ## Architecture
 
 The system uses a shared enrichment workflow. REST API requests and MCP tool calls both invoke the same LangGraph pipeline and repository layer.
