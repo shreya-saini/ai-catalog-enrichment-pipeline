@@ -325,6 +325,7 @@ The configured Gemini model must be available to your API key and account.
 
 **Important:** Never commit your `.env` file or expose your API key in source code or public repositories.
 
+
 ### 5. Run the API
 
 ```bash
@@ -351,6 +352,8 @@ The API will be available at:
 | POST | `/api/v1/products/{sku}/review` | Approve or reject a pending product |
 
 ### 1. Health Check
+
+
 
 ```http
 GET /health
